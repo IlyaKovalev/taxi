@@ -1,0 +1,8 @@
+ru/sfedu/sevenTravel/search/SearchTransportTest.class
+ru/sfedu/sevenTravel/api/JdbcServiceTest.class
+ru/sfedu/sevenTravel/api/CsvServiceTest.class
+ru/sfedu/sevenTravel/utils/LoginTest.class
+ru/sfedu/sevenTravel/api/XmlServiceTest.class
+ru/sfedu/sevenTravel/cli/CLITest.class
+ru/sfedu/sevenTravel/SevenTravelClientTest.class
+ru/sfedu/sevenTravel/search/SearchDriverTest.class
