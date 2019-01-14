@@ -1,0 +1,6 @@
+.gitignore
+.idea/
+csv/
+xml/
+logs/
+target/
