@@ -1,11 +1,8 @@
-package ru.sfedu.sevenTravel.beans;
-
-import org.simpleframework.xml.Element;
+package ru.sfedu.sevenTravel.model;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 
 public interface Entity {

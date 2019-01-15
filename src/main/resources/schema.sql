@@ -1,8 +1,8 @@
-CREATE DATABASE IF NOT EXISTS `SevenTrevel`;
+CREATE DATABASE IF NOT EXISTS `SevenTravel`;
 USE `SevenTravel`;
 
 CREATE TABLE IF NOT EXISTS `Driver`(
-    `id` VARCHAR(40) NOT NULL UNIQUE,
+    `id` INT(11) NOT NULL UNIQUE,
     `name` VARCHAR(255) NOT NULL,
     `passportNumber` VARCHAR(100) NOT NULL,
     `experience` INT(3),

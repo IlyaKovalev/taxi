@@ -1,11 +1,9 @@
 package ru.sfedu.sevenTravel.cli;
 
 import org.junit.Test;
-import ru.sfedu.sevenTravel.api.CsvService;
-import ru.sfedu.sevenTravel.api.JdbcService;
-import ru.sfedu.sevenTravel.api.XmlService;
-import ru.sfedu.sevenTravel.beans.Car;
-import ru.sfedu.sevenTravel.beans.Driver;
+import ru.sfedu.sevenTravel.persistence.CsvService;
+import ru.sfedu.sevenTravel.persistence.JdbcService;
+import ru.sfedu.sevenTravel.model.Driver;
 
 import static org.junit.Assert.*;
 import static ru.sfedu.sevenTravel.utils.Constants.*;

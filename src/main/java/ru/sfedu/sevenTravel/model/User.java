@@ -1,28 +1,22 @@
-package ru.sfedu.sevenTravel.beans;
+package ru.sfedu.sevenTravel.model;
 
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
 import ru.sfedu.sevenTravel.utils.Hash;
 
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
-@Root
+
 public class User implements Entity{
 
-    @Element private String id;
-    @Element private String fullName;
-    @Element private String phoneNumber;
-    @Element private String password;
-    @Element private int numberOfTravels;
+    private String id;
+    private String fullName;
+    private String phoneNumber;
+    private String password;
+    private int numberOfTravels;
     private Status status;
 
-    public User(@Element(name ="fullName") String fullName,
-                @Element(name = "phoneNumber") String phoneNumber,
-                @Element(name = "password") String password)
+    public User(String fullName,
+                String phoneNumber,
+                String password)
     {
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;

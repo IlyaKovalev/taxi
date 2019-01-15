@@ -1,9 +1,8 @@
-package ru.sfedu.sevenTravel.beans;
+package ru.sfedu.sevenTravel.model;
 
 import ru.sfedu.sevenTravel.utils.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Order implements Entity{
 

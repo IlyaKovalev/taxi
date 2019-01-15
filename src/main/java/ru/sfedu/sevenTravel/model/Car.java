@@ -1,25 +1,17 @@
-package ru.sfedu.sevenTravel.beans;
+package ru.sfedu.sevenTravel.model;
 
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+
 import ru.sfedu.sevenTravel.utils.*;
 
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
-@Root
 public class Car extends Transport {
 
-    @Element private String carNumber;
-    @Element private Drive drive;
+    private String carNumber;
+    private Drive drive;
 
-    public Car(@Element(name = "model") String model,@Element(name = "price") float price,
-               @Element(name = "info") String info, @Element(name = "numberOfSeats") int numberOfSeats,
-                @Element(name = "carNumber") String carNumber, @Element(name = "drive") Drive drive)
+    public Car(String model, float price,
+               String info, int numberOfSeats,
+               String carNumber, Drive drive)
     {
         super(price, info, numberOfSeats, model);
         this.carNumber = carNumber;

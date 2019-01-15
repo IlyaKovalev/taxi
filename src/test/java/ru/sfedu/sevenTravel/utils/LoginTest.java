@@ -1,11 +1,10 @@
 package ru.sfedu.sevenTravel.utils;
 
-import ru.sfedu.sevenTravel.utils.Login;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import ru.sfedu.sevenTravel.beans.User;
+import ru.sfedu.sevenTravel.model.User;
 
 import static org.junit.Assert.*;
 

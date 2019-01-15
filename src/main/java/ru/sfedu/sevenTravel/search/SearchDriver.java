@@ -2,7 +2,7 @@ package ru.sfedu.sevenTravel.search;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import ru.sfedu.sevenTravel.beans.Driver;
+import ru.sfedu.sevenTravel.model.Driver;
 
 import java.util.LinkedList;
 import java.util.List;

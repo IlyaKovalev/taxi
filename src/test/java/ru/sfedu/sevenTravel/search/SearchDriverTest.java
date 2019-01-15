@@ -4,7 +4,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import ru.sfedu.sevenTravel.beans.*;
+import ru.sfedu.sevenTravel.model.*;
 
 import java.util.LinkedList;
 import java.util.List;

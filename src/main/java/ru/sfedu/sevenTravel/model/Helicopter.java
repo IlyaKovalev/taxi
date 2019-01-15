@@ -1,21 +1,20 @@
-package ru.sfedu.sevenTravel.beans;
+package ru.sfedu.sevenTravel.model;
 
-import org.simpleframework.xml.Element;
 import ru.sfedu.sevenTravel.utils.*;
 
 public class Helicopter extends Transport {
 
-    @Element private String helicopterNumber;
-    @Element private double length;
-    @Element private double width;
-    @Element private double maxSpeed;
-    @Element private int numberOfScrews;
+    private String helicopterNumber;
+    private double length;
+    private double width;
+    private double maxSpeed;
+    private int numberOfScrews;
 
-    public Helicopter(@Element(name = "model") String model, @Element(name = "helicopterNumber") String helicopterNumber,
-                      @Element(name = "price") float price,@Element(name = "info") String info,
-                      @Element(name = "numberOfSeats") int numberOfSeats, @Element(name = "length") double length,
-                      @Element(name = "width") double width,@Element(name = "maxSpeed") double maxSpeed,
-                      @Element(name = "numberOfScrews") int numberOfScrews)
+    public Helicopter(String model, String helicopterNumber,
+                      float price, String info,
+                      int numberOfSeats, double length,
+                      double width, double maxSpeed,
+                      int numberOfScrews)
     {
         super(price, info, numberOfSeats, model);
         this.length = length;

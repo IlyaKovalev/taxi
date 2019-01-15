@@ -1,4 +1,4 @@
-package ru.sfedu.sevenTravel.beans;
+package ru.sfedu.sevenTravel.model;
 
 import java.util.Date;
 

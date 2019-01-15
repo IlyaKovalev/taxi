@@ -1,11 +1,11 @@
-package ru.sfedu.sevenTravel.api;
+package ru.sfedu.sevenTravel.persistence;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import ru.sfedu.sevenTravel.beans.BeanFactory;
-import ru.sfedu.sevenTravel.beans.Entity;
+import ru.sfedu.sevenTravel.model.BeanFactory;
+import ru.sfedu.sevenTravel.model.Entity;
 
 import java.io.File;
 import java.io.FileReader;
@@ -15,7 +15,6 @@ import java.lang.reflect.Field;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class CsvService<T extends Entity> implements DataProvider<T> {
 

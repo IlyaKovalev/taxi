@@ -1,4 +1,4 @@
-package ru.sfedu.sevenTravel.api;
+package ru.sfedu.sevenTravel.persistence;
 
 import java.util.List;
 

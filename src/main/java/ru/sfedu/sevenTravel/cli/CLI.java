@@ -1,12 +1,11 @@
 package ru.sfedu.sevenTravel.cli;
 
-import ru.sfedu.sevenTravel.api.DataProvider;
-import ru.sfedu.sevenTravel.beans.BeanFactory;
-import ru.sfedu.sevenTravel.beans.Driver;
-import ru.sfedu.sevenTravel.beans.Entity;
+import ru.sfedu.sevenTravel.persistence.DataProvider;
+import ru.sfedu.sevenTravel.model.BeanFactory;
+import ru.sfedu.sevenTravel.model.Driver;
+import ru.sfedu.sevenTravel.model.Entity;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

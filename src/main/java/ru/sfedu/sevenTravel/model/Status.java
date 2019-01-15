@@ -1,4 +1,4 @@
-package ru.sfedu.sevenTravel.beans;
+package ru.sfedu.sevenTravel.model;
 
 public enum Status {
     VIP, STANDART, BAD_REPUTATION;

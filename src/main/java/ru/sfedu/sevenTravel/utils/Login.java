@@ -3,7 +3,7 @@ package ru.sfedu.sevenTravel.utils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import ru.sfedu.sevenTravel.beans.User;
+import ru.sfedu.sevenTravel.model.User;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

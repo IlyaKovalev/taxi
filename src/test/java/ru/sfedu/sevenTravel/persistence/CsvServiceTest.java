@@ -1,10 +1,10 @@
-package ru.sfedu.sevenTravel.api;
+package ru.sfedu.sevenTravel.persistence;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import ru.sfedu.sevenTravel.beans.*;
+import ru.sfedu.sevenTravel.model.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 
 import static org.junit.Assert.*;
 import static ru.sfedu.sevenTravel.utils.Constants.*;
-import static ru.sfedu.sevenTravel.utils.Generator.*;
+import static ru.sfedu.sevenTravel.Generator.*;
 
 public class CsvServiceTest {
 

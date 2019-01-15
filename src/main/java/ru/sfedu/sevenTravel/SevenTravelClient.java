@@ -1,14 +1,12 @@
 package ru.sfedu.sevenTravel;
 
 import org.apache.log4j.*;
-import ru.sfedu.sevenTravel.beans.Car;
-import ru.sfedu.sevenTravel.beans.Driver;
-import ru.sfedu.sevenTravel.beans.Order;
-import ru.sfedu.sevenTravel.beans.User;
+import ru.sfedu.sevenTravel.model.Car;
+import ru.sfedu.sevenTravel.model.Driver;
+import ru.sfedu.sevenTravel.model.Order;
+import ru.sfedu.sevenTravel.model.User;
 import ru.sfedu.sevenTravel.cli.CLI;
-import org.junit.runner.JUnitCore;
-import java.io.Console;
-import java.io.InputStreamReader;
+
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -38,8 +36,9 @@ public class SevenTravelClient {
     }
 
     public static List<Car> generate(int start, int count){
-        return Stream.iterate(start, (i) -> i + 1).
-                map((i)->new Car("BMW X"+i, 100+i,"some info", 4, "CG-"+i, Car.Drive.forwardDrive)).limit(count)
+        return Stream.iterate(start, (i) -> i + 1)
+                .map((i)->new Car("BMW X"+i, 100+i,"some info", 4, "CG-"+i, Car.Drive.forwardDrive))
+                .limit(count)
                 .collect(Collectors.toList());
     }
 

@@ -1,19 +1,16 @@
-package ru.sfedu.sevenTravel.api;
+package ru.sfedu.sevenTravel.persistence;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import ru.sfedu.sevenTravel.beans.Car;
-import ru.sfedu.sevenTravel.beans.Driver;
+import ru.sfedu.sevenTravel.model.Driver;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Supplier;
 
 import static org.junit.Assert.*;
-import static ru.sfedu.sevenTravel.utils.Generator.*;
+import static ru.sfedu.sevenTravel.Generator.*;
 import static ru.sfedu.sevenTravel.utils.Schema.*;
 
 public class JdbcServiceTest {

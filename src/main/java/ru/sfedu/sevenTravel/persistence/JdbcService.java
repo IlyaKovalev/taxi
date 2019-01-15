@@ -1,9 +1,9 @@
-package ru.sfedu.sevenTravel.api;
+package ru.sfedu.sevenTravel.persistence;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import ru.sfedu.sevenTravel.beans.BeanFactory;
-import ru.sfedu.sevenTravel.beans.Entity;
+import ru.sfedu.sevenTravel.model.BeanFactory;
+import ru.sfedu.sevenTravel.model.Entity;
 import ru.sfedu.sevenTravel.utils.ConfigurationUtil;
 import ru.sfedu.sevenTravel.utils.DB_Connector;
 

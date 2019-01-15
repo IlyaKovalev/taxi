@@ -1,18 +1,17 @@
-package ru.sfedu.sevenTravel.beans;
+package ru.sfedu.sevenTravel.model;
 
-import org.simpleframework.xml.Element;
 import ru.sfedu.sevenTravel.utils.*;
-import java.util.List;
+
 import java.util.Objects;
 
 public class Driver implements Entity{
 
-    @Element private String id;
-    @Element private String fullName;
-    @Element private String passportNumber;
-    @Element private int experience;
-    @Element private int age;
-    @Element private double rating;
+    private String id;
+    private String fullName;
+    private String passportNumber;
+    private int experience;
+    private int age;
+    private double rating;
 
     public Driver(Driver driver){
         this.passportNumber = driver.getPassportNumber();
@@ -23,8 +22,8 @@ public class Driver implements Entity{
         this.rating = driver.getRating();
     }
 
-    public Driver(@Element(name = "fullName") String fullName,@Element(name = "passportNumber") String passportNumber,@Element(name = "experience") int experience,@Element(name = "age") int age,
-                  @Element(name = "rating") double rating) {
+    public Driver(String fullName, String passportNumber,
+                  int experience, int age, double rating) {
         this.passportNumber = passportNumber;
         this.fullName = fullName;
         this.experience = experience;

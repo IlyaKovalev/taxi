@@ -1,15 +1,11 @@
 package ru.sfedu.sevenTravel.cli;
 
-import ru.sfedu.sevenTravel.api.CsvService;
-import ru.sfedu.sevenTravel.api.DataProvider;
-import ru.sfedu.sevenTravel.api.JdbcService;
-import ru.sfedu.sevenTravel.api.XmlService;
-import ru.sfedu.sevenTravel.beans.*;
+import ru.sfedu.sevenTravel.persistence.CsvService;
+import ru.sfedu.sevenTravel.persistence.DataProvider;
+import ru.sfedu.sevenTravel.persistence.JdbcService;
+import ru.sfedu.sevenTravel.model.*;
 import ru.sfedu.sevenTravel.utils.ConfigurationUtil;
-import ru.sfedu.sevenTravel.utils.Schema;
 
-import javax.jws.soap.SOAPBinding;
-import java.nio.file.Paths;
 import static ru.sfedu.sevenTravel.utils.Constants.*;
 import static ru.sfedu.sevenTravel.utils.Schema.*;
 

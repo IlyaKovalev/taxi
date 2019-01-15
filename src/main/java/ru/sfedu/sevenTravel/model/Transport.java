@@ -1,23 +1,18 @@
-package ru.sfedu.sevenTravel.beans;
+package ru.sfedu.sevenTravel.model;
 
 
-import org.simpleframework.xml.Element;
-import ru.sfedu.sevenTravel.utils.Hash;
-
-import java.util.LinkedList;
-import java.util.List;
 
 public class Transport implements Entity{
 
 
-    @Element private String id;
-    @Element private float price;
-    @Element private String info;
-    @Element private int numberOfSeats;
-    @Element private String model;
+    private String id;
+    private float price;
+    private String info;
+    private int numberOfSeats;
+    private String model;
 
-    public Transport(@Element float price, @Element String info,
-                     @Element int numberOfSeats, @Element String model) {
+    public Transport(float price, String info,
+                     int numberOfSeats, String model) {
         this.price = price;
         this.info = info;
         this.numberOfSeats = numberOfSeats;
