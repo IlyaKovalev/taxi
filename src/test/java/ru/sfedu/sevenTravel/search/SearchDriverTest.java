@@ -23,7 +23,7 @@ public class SearchDriverTest {
     public static void setData() {
         log.debug("set data");
         reviews = new LinkedList<Review>();
-        reviews.add(new Review("efre","pretty good", "good service", 10));
+        reviews.add(new Review("efre","pretty good", 10));
 
         drivers = new LinkedList<Driver>();
         drivers.add(new Driver("Магометов Сергей Корнеевич","6023 12453",4, 29, 7.8 ));

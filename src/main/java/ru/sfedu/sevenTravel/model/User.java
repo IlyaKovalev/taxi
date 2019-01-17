@@ -1,17 +1,19 @@
 package ru.sfedu.sevenTravel.model;
 
-import ru.sfedu.sevenTravel.utils.Hash;
-
+import javax.persistence.*;
 import java.util.Objects;
 
-
+@javax.persistence.Entity
 public class User implements Entity{
 
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String fullName;
     private String phoneNumber;
     private String password;
     private int numberOfTravels;
+    @Enumerated(value = EnumType.STRING)
     private Status status;
 
     public User(String fullName,
@@ -23,7 +25,6 @@ public class User implements Entity{
         this.password = password;
         this.numberOfTravels = 0;
         this.status = Status.STANDART;
-        this.setId(Hash.hashCode(phoneNumber));
     }
 
     public String getFullName() {
@@ -50,11 +51,11 @@ public class User implements Entity{
         this.password = password;
     }
 
-    public String getId() {
+    public long getId() {
         return this.id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -89,8 +90,8 @@ public class User implements Entity{
     }
 
     public String[] toStringArray(){
-        return new String[]{this.getId(), this.getFullName(), this.getPhoneNumber(), this.getPassword(),
-                String.valueOf(this.getNumberOfTravels()), this.getStatus().name()};
+        return new String[]{String.valueOf(getId()), getFullName(), getPhoneNumber(), getPassword(),
+                String.valueOf(getNumberOfTravels()), getStatus().name()};
     }
 
     @Override
@@ -98,12 +99,13 @@ public class User implements Entity{
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return Objects.equals(getId(), user.getId());
+        return Objects.equals(getFullName(), user.getFullName()) &&
+                Objects.equals(getPhoneNumber(), user.getPhoneNumber());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(getFullName(), getPhoneNumber());
     }
 
     @Override

@@ -1,19 +1,40 @@
 package ru.sfedu.sevenTravel.model;
 
 import ru.sfedu.sevenTravel.utils.*;
+
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
+@javax.persistence.Entity
 public class Order implements Entity{
 
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID", nullable = false)
     private User user;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TRANSPORT_ID", nullable = false)
     private Transport transport;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DRIVER_ID", nullable = false)
     private Driver driver;
+
+    @Column(precision=10, scale=2, nullable = false)
     private double totalPrice;
     private String fromAddress;
     private String toAddress;
-    private LocalDate date;
+
+
+    private LocalDate date = LocalDate.now();
 
     public Order(User user, Transport transport, Driver driver,
                  double totalPrice, String fromAddress, String toAddress) {
@@ -24,9 +45,6 @@ public class Order implements Entity{
         this.toAddress = toAddress;
         this.date = LocalDate.now();
         this.totalPrice = totalPrice;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        String keyOrder = user.getId() + transport.getId() + driver.getId() + date;
-        setId(Hash.hashCode(keyOrder));
     }
 
     public LocalDate getDate() {
@@ -86,12 +104,12 @@ public class Order implements Entity{
     }
 
     @Override
-    public String getId() {
+    public long getId() {
         return this.id;
     }
 
     @Override
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -106,20 +124,27 @@ public class Order implements Entity{
     }
 
     public String[] toStringArray(){
-        return new String[]{getId(), getUser().getId(), getTransport().getId(), getDriver().getId(),
-                            String.valueOf(getTotalPrice()), getFromAddress(), getToAddress()};
+        return new String[]{String.valueOf(getId()), String.valueOf(getUser().getId()), String.valueOf(getTransport().getId()),
+                            String.valueOf(getDriver().getId()), String.valueOf(getTotalPrice()),
+                            getFromAddress(), getToAddress()};
     }
 
-
-    public static Entity newElement(String[] args) {
-        throw new UnsupportedOperationException();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+        Order order = (Order) o;
+        return Objects.equals(getUser(), order.getUser()) &&
+                Objects.equals(getTransport(), order.getTransport()) &&
+                Objects.equals(getDriver(), order.getDriver()) &&
+                Objects.equals(getDate(), order.getDate());
     }
 
-    public static Order makeOrder(User user, Transport transport, Driver driver,
-                                  double total_price, String addressFrom, String addressTo){
-            return new Order(user, transport, driver, total_price, addressFrom, addressTo);
-    }
+    @Override
+    public int hashCode() {
 
+        return Objects.hash(getUser(), getTransport(), getDriver(), getDate());
+    }
 
     @Override
     public String toString() {

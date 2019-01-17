@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 
 public interface Entity {
 
-    public String getId();
+    public long getId();
 
-    public void setId(String id);
+    public void setId(long id);
 
     public String getName();
 

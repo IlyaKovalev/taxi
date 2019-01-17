@@ -3,11 +3,22 @@ package ru.sfedu.sevenTravel.model;
 
 import ru.sfedu.sevenTravel.utils.*;
 
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import java.util.Objects;
 
+@javax.persistence.Entity
 public class Car extends Transport {
 
+    @Column(nullable = false, name = "CAR_NUMBER", length = 15)
     private String carNumber;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 12)
     private Drive drive;
+
+    private Car(){}
 
     public Car(String model, float price,
                String info, int numberOfSeats,
@@ -16,7 +27,6 @@ public class Car extends Transport {
         super(price, info, numberOfSeats, model);
         this.carNumber = carNumber;
         this.drive = drive;
-        setId(Hash.hashCode(carNumber));
     }
 
     public Drive getDrive() {
@@ -42,9 +52,23 @@ public class Car extends Transport {
 
     @Override
     public String[] toStringArray(){
-        return new String[]{getId(), getModel(), String.valueOf(getPrice()),
+        return new String[]{String.valueOf(getId()), getModel(), String.valueOf(getPrice()),
                             getInfo(), String.valueOf(getNumberOfSeats()),
                              getCarNumber(), Drive.getString(this.drive)};
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Car)) return false;
+        Car car = (Car) o;
+        return Objects.equals(getCarNumber(), car.getCarNumber());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getCarNumber());
     }
 
     @Override

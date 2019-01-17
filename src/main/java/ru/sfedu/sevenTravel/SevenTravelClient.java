@@ -42,7 +42,7 @@ public class SevenTravelClient {
                 .collect(Collectors.toList());
     }
 
-    public static void main(String... args) {
+    public static void main(String... args) {/*
 
         User user = new User("Alena Belyavtseva", "88005553535", "qwerty");
         List<Car> cars = generate(0, 10);
@@ -104,7 +104,7 @@ public class SevenTravelClient {
                     log.info("good bay!!!");
                     System.exit(0);
             }
-        }
+        }*/
     }
 
 }

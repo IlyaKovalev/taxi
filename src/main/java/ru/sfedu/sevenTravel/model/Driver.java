@@ -2,16 +2,34 @@ package ru.sfedu.sevenTravel.model;
 
 import ru.sfedu.sevenTravel.utils.*;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+@javax.persistence.Entity
 public class Driver implements Entity{
 
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(nullable = false, name = "FULL_NAME")
     private String fullName;
+
+    @Column(nullable = false, name = "PASSPORT_NUMBER")
     private String passportNumber;
+
     private int experience;
+
     private int age;
+
     private double rating;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Review> reviews = new ArrayList<>();
+
+    private Driver(){}
 
     public Driver(Driver driver){
         this.passportNumber = driver.getPassportNumber();
@@ -29,7 +47,6 @@ public class Driver implements Entity{
         this.experience = experience;
         this.age = age;
         this.rating = rating;
-        this.setId(Hash.hashCode(passportNumber));
     }
 
     public String getPassportNumber() {
@@ -73,7 +90,7 @@ public class Driver implements Entity{
     }
 
     public String[] toStringArray(){
-        return new String[]{getId(),getFullName(), getPassportNumber(), String.valueOf(getExperience()),
+        return new String[]{String.valueOf(getId()),getFullName(), getPassportNumber(), String.valueOf(getExperience()),
                             String.valueOf(getAge()), String.valueOf(rating)};
     }
 
@@ -82,13 +99,13 @@ public class Driver implements Entity{
         if (this == o) return true;
         if (!(o instanceof Driver)) return false;
         Driver driver = (Driver) o;
-        return Objects.equals(getId(), driver.getId());
+        return Objects.equals(getPassportNumber(), getPassportNumber());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getId());
+        return Objects.hash(getPassportNumber());
     }
 
     public static Entity newElement(String[] args) {
@@ -97,12 +114,12 @@ public class Driver implements Entity{
     }
 
     @Override
-    public String getId() {
+    public long getId() {
         return this.id;
     }
 
     @Override
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

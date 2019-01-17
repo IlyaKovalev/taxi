@@ -2,13 +2,20 @@ package ru.sfedu.sevenTravel.model;
 
 import ru.sfedu.sevenTravel.utils.*;
 
+import javax.persistence.Column;
+import java.util.Objects;
+
+@javax.persistence.Entity
 public class Helicopter extends Transport {
 
+    @Column(nullable = false, name = "HELICOPTER_NUMBER", length = 20)
     private String helicopterNumber;
     private double length;
     private double width;
     private double maxSpeed;
     private int numberOfScrews;
+
+    private Helicopter(){}
 
     public Helicopter(String model, String helicopterNumber,
                       float price, String info,
@@ -22,7 +29,6 @@ public class Helicopter extends Transport {
         this.maxSpeed = maxSpeed;
         this.helicopterNumber = helicopterNumber;
         this.numberOfScrews = numberOfScrews;
-        setId(Hash.hashCode(helicopterNumber));
     }
 
     public String getHelicopterNumber() {
@@ -67,14 +73,30 @@ public class Helicopter extends Transport {
 
     @Override
     public String[] toStringArray(){
-        return new String[]{getId(), getModel(), getHelicopterNumber(),String.valueOf(getPrice()), getInfo(), String.valueOf(getNumberOfSeats()),
-                             String.valueOf(getLength()), String.valueOf(getWidth()), String.valueOf(getMaxSpeed()), String.valueOf(getNumberOfScrews())};
+        return new String[]{String.valueOf(getId()), getModel(), getHelicopterNumber(),
+                            String.valueOf(getPrice()), getInfo(), String.valueOf(getNumberOfSeats()),
+                            String.valueOf(getLength()), String.valueOf(getWidth()),
+                            String.valueOf(getMaxSpeed()), String.valueOf(getNumberOfScrews())};
     }
 
     public static Entity newElement(String[] args){
         return new Helicopter(args[1], args[2], Float.valueOf(args[3]), args[4],
                 Integer.valueOf(args[5]), Double.valueOf(args[6]), Double.valueOf(args[7]),
                 Double.valueOf(args[8]), Integer.valueOf(args[9]));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Helicopter)) return false;
+        Helicopter that = (Helicopter) o;
+        return Objects.equals(getHelicopterNumber(), that.getHelicopterNumber());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getHelicopterNumber());
     }
 
     @Override

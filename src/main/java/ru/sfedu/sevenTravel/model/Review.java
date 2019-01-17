@@ -1,28 +1,43 @@
 package ru.sfedu.sevenTravel.model;
 
+import javax.persistence.*;
+import javax.persistence.Entity;
 import java.util.Date;
+import java.util.Objects;
 
+@Entity
 public class Review {
 
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(length = 5000, nullable = false)
     private String review;
+    @Column(length = 300, nullable = false)
     private String title;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID", nullable = false)
+    User author;
+
     private double assessment;
     private Date date;
 
-    public Review(String id, String review, String title, double assessment) {
-        this.id = id;
+    private Review(){}
+
+    public Review(String review, String title, double assessment) {
         this.review = review;
         this.title = title;
         this.assessment = assessment;
         this.date = new Date();
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -56,6 +71,20 @@ public class Review {
 
     public void setAssessment(double assessment) {
         this.assessment = assessment;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Review)) return false;
+        Review review = (Review) o;
+        return getId() == review.getId();
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getId());
     }
 
     @Override

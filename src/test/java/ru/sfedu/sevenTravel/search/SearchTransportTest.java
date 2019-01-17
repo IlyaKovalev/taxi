@@ -24,7 +24,7 @@ public class SearchTransportTest {
     @BeforeClass
     public static void setData() {
         reviews = new LinkedList<Review>();
-        reviews.add(new Review("esdf","pretty good", "good service", 10));
+        reviews.add(new Review("esdf","pretty good", 10));
         transport = generate(0, 100);
     }
 

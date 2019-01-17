@@ -1,6 +1,5 @@
 package ru.sfedu.sevenTravel.cli;
 
-import ru.sfedu.sevenTravel.persistence.DataProvider;
 import ru.sfedu.sevenTravel.model.BeanFactory;
 import ru.sfedu.sevenTravel.model.Driver;
 import ru.sfedu.sevenTravel.model.Entity;
@@ -13,7 +12,7 @@ public class CLI {
 
     public static Entity entity;
 
-    public String execute(String[] args){
+/*    public String execute(String[] args){
         if (args==null || args.length==0)return "command is null";
         DataProvider dataProvider;
         try {
@@ -57,5 +56,5 @@ public class CLI {
                 return "Invalid command: "+args[0];
         }
         return "Invalid command: "+args[0];
-    }
+    }*/
 }

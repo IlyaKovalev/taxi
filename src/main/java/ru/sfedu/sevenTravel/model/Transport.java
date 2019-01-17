@@ -1,15 +1,27 @@
 package ru.sfedu.sevenTravel.model;
 
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
+@javax.persistence.Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Transport implements Entity{
 
-
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(nullable = false)
     private float price;
     private String info;
     private int numberOfSeats;
     private String model;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Review> reviews = new ArrayList<>();
+
+    protected Transport(){}
 
     public Transport(float price, String info,
                      int numberOfSeats, String model) {
@@ -56,12 +68,12 @@ public class Transport implements Entity{
     }
 
     @Override
-    public String getId() {
+    public long getId() {
         return this.id;
     }
 
     @Override
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -72,14 +84,6 @@ public class Transport implements Entity{
 
     @Override
     public void setName(String name) { }
-
-    @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (!(object instanceof Transport)) return false;
-        Transport transport = (Transport) object;
-        return getId().equals(transport.getId());
-    }
 
     @Override
     public String toString() {
