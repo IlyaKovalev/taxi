@@ -6,14 +6,15 @@ import org.hibernate.cfg.Configuration;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class HibernateUtil {
+public class JPAUtil {
 
 
-    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("taxi");
+    private static EntityManagerFactory emf;
 
-    private static EntityManagerFactory buildSessionFactory() {
+    private static EntityManagerFactory buildEntityManagerFactory() {
         try {
-            return new Configuration().configure().buildSessionFactory();
+            emf = Persistence.createEntityManagerFactory("taxi");
+            return emf;
         }
         catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
@@ -21,6 +22,7 @@ public class HibernateUtil {
     }
 
     public static EntityManagerFactory getSessionFactory() {
+        if (emf==null || !emf.isOpen()) return buildEntityManagerFactory();
         return emf;
     }
 

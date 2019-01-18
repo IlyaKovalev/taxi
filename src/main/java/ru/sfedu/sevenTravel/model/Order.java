@@ -3,29 +3,29 @@ package ru.sfedu.sevenTravel.model;
 import ru.sfedu.sevenTravel.utils.*;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @javax.persistence.Entity
+@Table(name = "order_taxi")
 public class Order implements Entity{
 
     @Id
+    @Column(name = "order_i")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID", nullable = false)
+    // CascadeType.ALL is pretty bad idea there but testing process becomes much easier
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "USER_ID")
     private User user;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TRANSPORT_ID", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "TRANSPORT_ID")
     private Transport transport;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "DRIVER_ID", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "DRIVER_ID")
     private Driver driver;
 
     @Column(precision=10, scale=2, nullable = false)
@@ -33,8 +33,9 @@ public class Order implements Entity{
     private String fromAddress;
     private String toAddress;
 
+    private LocalDate orderDate = LocalDate.now();
 
-    private LocalDate date = LocalDate.now();
+    private Order(){}
 
     public Order(User user, Transport transport, Driver driver,
                  double totalPrice, String fromAddress, String toAddress) {
@@ -43,16 +44,15 @@ public class Order implements Entity{
         this.driver = driver;
         this.fromAddress = fromAddress;
         this.toAddress = toAddress;
-        this.date = LocalDate.now();
         this.totalPrice = totalPrice;
     }
 
     public LocalDate getDate() {
-        return date;
+        return orderDate;
     }
 
     public void setDate(LocalDate date) {
-        this.date = date;
+        this.orderDate = date;
     }
 
     public User getUser() {
@@ -101,6 +101,14 @@ public class Order implements Entity{
 
     public void setToAddress(String toAddress) {
         toAddress = toAddress;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
     }
 
     @Override

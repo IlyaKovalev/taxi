@@ -1,9 +1,6 @@
 package ru.sfedu.sevenTravel;
 
-import ru.sfedu.sevenTravel.model.Car;
-import ru.sfedu.sevenTravel.model.Driver;
-import ru.sfedu.sevenTravel.model.Helicopter;
-import ru.sfedu.sevenTravel.model.User;
+import ru.sfedu.sevenTravel.model.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,6 +32,17 @@ public class Generator {
         return Stream.iterate(start, (i)->i+1)
                 .map((i)->new Helicopter("MK-X"+i, "XX-CVM-"+i,start + i, "some info", 4,20, 10, 100, 4 ))
                 .limit(count)
+                .collect(Collectors.toList());
+    }
+
+    public static List<Order> generateOrder(int start, int count){
+        List<User> users = generateUser(start, count);
+        List<Car> cars = generateCar(start, count);
+        List<Driver> drivers = generateDriver(start, count);
+        return Stream.iterate(start, i->i+1)
+                .limit(count)
+                .map(i -> new Order(users.get(i), cars.get(i), drivers.get(i), 200, "A", "B"))
+                .peek(order -> System.out.println(order.getDriver().getFullName()))
                 .collect(Collectors.toList());
     }
 

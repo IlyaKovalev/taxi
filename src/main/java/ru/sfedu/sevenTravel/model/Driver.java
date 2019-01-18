@@ -14,10 +14,10 @@ public class Driver implements Entity{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(nullable = false, name = "FULL_NAME")
+    @Column(name = "FULL_NAME")
     private String fullName;
 
-    @Column(nullable = false, name = "PASSPORT_NUMBER")
+    @Column(name = "PASSPORT_NUMBER")
     private String passportNumber;
 
     private int experience;
@@ -42,8 +42,8 @@ public class Driver implements Entity{
 
     public Driver(String fullName, String passportNumber,
                   int experience, int age, double rating) {
-        this.passportNumber = passportNumber;
         this.fullName = fullName;
+        this.passportNumber = passportNumber;
         this.experience = experience;
         this.age = age;
         this.rating = rating;
@@ -87,6 +87,14 @@ public class Driver implements Entity{
 
     public void setRating(double rating) {
         this.rating = rating;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public String[] toStringArray(){

@@ -30,7 +30,7 @@ public class DriverDAOimplTest {
 
     @Before
     public void save(){
-        drivers = drivers.stream().map(driverDAO::makePersistent).collect(Collectors.toList());
+        driverDAO.makePersistent(drivers);
     }
 
     @After

@@ -11,6 +11,8 @@ public interface GenericDAO<T, ID extends Serializable> {
     public List<T> findAll();
     public long getCount();
     public T makePersistent(T entity);
+    public List<T> makePersistent(List<T> entities);
     public void makeTransient(T entity);
+    public void makeTransient(List<T> entities);
     public void checkVersion(T entity, boolean forceUpdate);
 }

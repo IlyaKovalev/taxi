@@ -9,12 +9,15 @@ public class User implements Entity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String fullName;
     private String phoneNumber;
     private String password;
     private int numberOfTravels;
     @Enumerated(value = EnumType.STRING)
     private Status status;
+
+    private User(){}
 
     public User(String fullName,
                 String phoneNumber,
@@ -117,5 +120,23 @@ public class User implements Entity{
                 ", numberOfTravels=" + numberOfTravels +
                 ", status=" + status +
                 '}';
+    }
+
+    public enum Status {
+        VIP, STANDART, BAD_REPUTATION;
+
+        public static Status getStatus(String status){
+            switch (status){
+                case "VIP":
+                    return VIP;
+
+                case "STANDART":
+                    return STANDART;
+
+                case "BAD_REPUTATION":
+                    return BAD_REPUTATION;
+            }
+            return null;
+        }
     }
 }

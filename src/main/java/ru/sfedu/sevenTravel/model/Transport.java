@@ -67,6 +67,14 @@ public class Transport implements Entity{
         return new String[]{};
     }
 
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
     @Override
     public long getId() {
         return this.id;
