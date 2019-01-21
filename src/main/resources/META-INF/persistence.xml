@@ -8,7 +8,7 @@
     <class>ru.sfedu.sevenTravel.model.Car</class>
     <class>ru.sfedu.sevenTravel.model.Helicopter</class>
     <class>ru.sfedu.sevenTravel.model.Driver</class>
-    <class>ru.sfedu.sevenTravel.model.User</class>
+    <class>ru.sfedu.sevenTravel.model.User.User</class>
     <class>ru.sfedu.sevenTravel.model.Review</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>

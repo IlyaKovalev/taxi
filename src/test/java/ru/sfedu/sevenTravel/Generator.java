@@ -1,6 +1,7 @@
 package ru.sfedu.sevenTravel;
 
 import ru.sfedu.sevenTravel.model.*;
+import ru.sfedu.sevenTravel.model.User.User;
 
 import java.util.List;
 import java.util.stream.Collectors;

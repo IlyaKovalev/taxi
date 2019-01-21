@@ -5,8 +5,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import ru.sfedu.sevenTravel.Generator;
-import ru.sfedu.sevenTravel.model.User;
-import ru.sfedu.sevenTravel.model.User.Status;
+import ru.sfedu.sevenTravel.model.User.User;
+import ru.sfedu.sevenTravel.model.User.User.Status;
 import ru.sfedu.sevenTravel.persistence.dao.modelDAO.interfaceDAO.UserDAO;
 
 import java.util.List;

@@ -5,14 +5,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import ru.sfedu.sevenTravel.Generator;
-import ru.sfedu.sevenTravel.model.Car;
-import ru.sfedu.sevenTravel.model.Driver;
 import ru.sfedu.sevenTravel.model.Order;
-import ru.sfedu.sevenTravel.model.User;
-import ru.sfedu.sevenTravel.persistence.dao.modelDAO.interfaceDAO.DriverDAO;
 import ru.sfedu.sevenTravel.persistence.dao.modelDAO.interfaceDAO.OrderDAO;
-import ru.sfedu.sevenTravel.persistence.dao.modelDAO.interfaceDAO.TransportDAO;
-import ru.sfedu.sevenTravel.persistence.dao.modelDAO.interfaceDAO.UserDAO;
 
 import java.util.List;
 

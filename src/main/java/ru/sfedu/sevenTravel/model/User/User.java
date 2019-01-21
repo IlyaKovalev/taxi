@@ -1,18 +1,20 @@
-package ru.sfedu.sevenTravel.model;
+package ru.sfedu.sevenTravel.model.User;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @javax.persistence.Entity
-public class User implements Entity{
+public class User implements ru.sfedu.sevenTravel.model.Entity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String fullName;
-    private String phoneNumber;
-    private String password;
+    private PhoneNumber phoneNumber;
+    private Password password;
     private int numberOfTravels;
     @Enumerated(value = EnumType.STRING)
     private Status status;
@@ -24,8 +26,8 @@ public class User implements Entity{
                 String password)
     {
         this.fullName = fullName;
-        this.phoneNumber = phoneNumber;
-        this.password = password;
+        this.phoneNumber = new PhoneNumber(phoneNumber);
+        this.password = new Password(password);
         this.numberOfTravels = 0;
         this.status = Status.STANDART;
     }
@@ -38,20 +40,20 @@ public class User implements Entity{
         this.fullName = fullName;
     }
 
-    public String getPhoneNumber() {
+    public PhoneNumber getPhoneNumber() {
         return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        this.phoneNumber.setPhoneNumber(phoneNumber);
     }
 
     public String getPassword() {
-        return password;
+        return password.getPassword();
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password.setPassword(password);
     }
 
     public long getId() {
@@ -93,7 +95,7 @@ public class User implements Entity{
     }
 
     public String[] toStringArray(){
-        return new String[]{String.valueOf(getId()), getFullName(), getPhoneNumber(), getPassword(),
+        return new String[]{String.valueOf(getId()), getFullName(), phoneNumber.getPhoneNumber(), password.getPassword(),
                 String.valueOf(getNumberOfTravels()), getStatus().name()};
     }
 
@@ -115,7 +117,7 @@ public class User implements Entity{
     public String toString() {
         return "User{" +
                 "fullName='" + fullName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                ", PhoneNumber='" + phoneNumber + '\'' +
                 ", id=" + id +
                 ", numberOfTravels=" + numberOfTravels +
                 ", status=" + status +

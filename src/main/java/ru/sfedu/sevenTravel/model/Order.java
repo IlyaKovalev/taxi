@@ -1,6 +1,6 @@
 package ru.sfedu.sevenTravel.model;
 
-import ru.sfedu.sevenTravel.utils.*;
+import ru.sfedu.sevenTravel.model.User.User;
 
 import javax.persistence.*;
 import java.time.LocalDate;

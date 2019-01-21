@@ -1,5 +1,7 @@
 package ru.sfedu.sevenTravel.model;
 
+import ru.sfedu.sevenTravel.model.User.User;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 import java.util.Date;
@@ -71,6 +73,14 @@ public class Review {
 
     public void setAssessment(double assessment) {
         this.assessment = assessment;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 
     @Override
